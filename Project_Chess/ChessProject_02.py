@@ -5,6 +5,7 @@ CHESS_PIECE = ['PAWN', 'ROOK', 'KNIGHT', 'BISHOP', 'QUEEN', 'KING']
 STATUS = ['ALIVE', 'DEAD']
 TEAM = ['RED', 'BLACK']
 Squares = []
+Pieces = []
 start_window_size = "600x650"
 isDrawn = False
 Square_arr = {     'A1' : [100,500,150,450],
@@ -73,10 +74,11 @@ Square_arr = {     'A1' : [100,500,150,450],
                    'H8' : [450,150,500,100]
                    }
 
+
+
 class ChessPiece:
-    def __init__(self, name, startingPosition, piece, status, allowedMovement, currentPosition, team):
+    def __init__(self, name, piece, status, allowedMovement, currentPosition, team):
         self.name = name
-        self.startingPosition = startingPosition
         self.piece = piece
         self.status = status
         self.allowedMovement = allowedMovement
@@ -106,22 +108,26 @@ class Square(dict):
 
 def Init_Pieces():
     squares = Square()
-    P1 = ChessPiece('Pawn_01', '', CHESS_PIECE[0], STATUS[0], '', '', TEAM[0])
-    P2 = ChessPiece('Pawn_02', '', CHESS_PIECE[0], STATUS[0], '', '', TEAM[0])
-    P3 = ChessPiece('Pawn_03', '', CHESS_PIECE[0], STATUS[0], '', '', TEAM[0])
-    P4 = ChessPiece('Pawn_04', '', CHESS_PIECE[0], STATUS[0], '', '', TEAM[0])
-    P5 = ChessPiece('Pawn_05', '', CHESS_PIECE[0], STATUS[0], '', '', TEAM[0])
-    P6 = ChessPiece('Pawn_06', '', CHESS_PIECE[0], STATUS[0], '', '', TEAM[0])
-    P7 = ChessPiece('Pawn_07', '', CHESS_PIECE[0], STATUS[0], '', '', TEAM[0])
-    P8 = ChessPiece('Pawn_08', '', CHESS_PIECE[0], STATUS[0], '', '', TEAM[0])
-    R1 = ChessPiece('Rook_01', '', CHESS_PIECE[1], STATUS[0], '', '', TEAM[0])
-    R2 = ChessPiece('Rook_02', '', CHESS_PIECE[2], STATUS[0], '', '', TEAM[0])
-    K1 = ChessPiece('Knight_01', '', CHESS_PIECE[3], STATUS[0], '', '', TEAM[0])
-    K2 = ChessPiece('Knight_02', '', CHESS_PIECE[3], STATUS[0], '', '', TEAM[0])
-    B1 = ChessPiece('Bishop_01', '', CHESS_PIECE[4], STATUS[0], '', '', TEAM[0])
-    B2 = ChessPiece('Bishop_02', '', CHESS_PIECE[4], STATUS[0], '', '', TEAM[0])
-    Q1 = ChessPiece('Queen', '', CHESS_PIECE[5], STATUS[0], '', '', TEAM[0])
-    KING1 = ChessPiece('King', '', CHESS_PIECE[6], STATUS[0], '', '', TEAM[0])
+    P1 = ChessPiece('Pawn_01', CHESS_PIECE[0], STATUS[0], '', Square.__getitem__('A2'), TEAM[0])
+    P2 = ChessPiece('Pawn_02', CHESS_PIECE[0], STATUS[0], '', Square.__getitem__('B2'), TEAM[0])
+    P3 = ChessPiece('Pawn_03', CHESS_PIECE[0], STATUS[0], '', Square.__getitem__('C2'), TEAM[0])
+    P4 = ChessPiece('Pawn_04', CHESS_PIECE[0], STATUS[0], '', Square.__getitem__('D2'), TEAM[0])
+    P5 = ChessPiece('Pawn_05', CHESS_PIECE[0], STATUS[0], '', Square.__getitem__('E2'), TEAM[0])
+    P6 = ChessPiece('Pawn_06', CHESS_PIECE[0], STATUS[0], '', Square.__getitem__('F2'), TEAM[0])
+    P7 = ChessPiece('Pawn_07', CHESS_PIECE[0], STATUS[0], '', Square.__getitem__('G2'), TEAM[0])
+    P8 = ChessPiece('Pawn_08', CHESS_PIECE[0], STATUS[0], '', Square.__getitem__('H2'), TEAM[0])
+    R1 = ChessPiece('Rook_01', CHESS_PIECE[1], STATUS[0], '', Square.__getitem__('A2'), TEAM[0])
+    R2 = ChessPiece('Rook_02', CHESS_PIECE[2], STATUS[0], '', Square.__getitem__('H1'), TEAM[0])
+    K1 = ChessPiece('Knight_01', CHESS_PIECE[3], STATUS[0], '', Square.__getitem__('B1'), TEAM[0])
+    K2 = ChessPiece('Knight_02', CHESS_PIECE[3], STATUS[0], '', Square.__getitem__('G1'), TEAM[0])
+    B1 = ChessPiece('Bishop_01', CHESS_PIECE[4], STATUS[0], '', Square.__getitem__('C1'), TEAM[0])
+    B2 = ChessPiece('Bishop_02', CHESS_PIECE[4], STATUS[0], '', Square.__getitem__('F1'), TEAM[0])
+    Q1 = ChessPiece('Queen', CHESS_PIECE[5], STATUS[0], '', Square.__getitem__('D1'), TEAM[0])
+    KING1 = ChessPiece('King', CHESS_PIECE[6], STATUS[0], '', Square.__getitem__('E1'), TEAM[0])
+    Pieces = [P1, P2, P3, P4, P5, P6, P7, P8, R1, R2, K1, K2, B1, B2, Q1, KING1]
+def Draw_Pieces():
+    pass
+
 
 class GUI:
     def __init__(self, master_win):
